@@ -10,96 +10,114 @@ const skillClusters = [
     central: {
       name: "Unity",
       description: "Primary game engine for professional development and mobile games.",
+      isUnlocked: true,
     },
     skills: [
       {
         name: "Gameplay Systems",
         description: "Design and implementation of gameplay mechanics and player interactions in Unity.",
+        isUnlocked: true,
       },
       {
         name: "UI Integration",
         description: "Implementation of responsive gameplay-oriented UI systems.",
+        isUnlocked: true,
       },
       {
         name: "Mobile Development",
         description: "Experience building and optimizing games for mobile platforms.",
+        isUnlocked: true,
       },
       {
         name: "Optimization",
         description: "Improving performance and frame stability for gameplay systems.",
+        isUnlocked: true,
       },
       {
         name: "Shader Graph",
         description: "Creation of visual effects and materials using Unity Shader Graph.",
+        isUnlocked: true,
       },
     ],
     color: "rgba(74, 222, 128, 0.8)",
     glowColor: "rgb(74, 222, 128)",
-    masteryLevel: "advanced" as const,
+    allUnlocked: true,
   },
   {
     id: "unreal",
     central: {
       name: "Unreal Engine",
       description: "Exploring advanced game development with Unreal Engine 5.",
+      isUnlocked: true,
     },
     skills: [
       {
         name: "Blueprints",
         description: "Gameplay scripting and systems built using Unreal Blueprints.",
+        isUnlocked: true,
       },
       {
         name: "Physics Prototyping",
         description: "Experimentation with physics-based gameplay mechanics.",
+        isUnlocked: true,
       },
       {
         name: "Gameplay Logic",
         description: "Implementation of gameplay behaviors and interactions.",
+        isUnlocked: false,
       },
       {
         name: "Level Interaction",
         description: "Designing interactive gameplay environments.",
+        isUnlocked: false,
       },
       {
         name: "Performance Basics",
         description: "Understanding performance considerations in Unreal projects.",
+        isUnlocked: false,
       },
     ],
-    color: "rgba(168, 85, 247, 0.75)",
+    color: "rgba(168, 85, 247, 0.8)",
     glowColor: "rgb(168, 85, 247)",
-    masteryLevel: "intermediate" as const,
+    allUnlocked: false,
   },
   {
     id: "vr",
     central: {
       name: "VR / XR",
       description: "Exploring immersive technologies and virtual reality development.",
+      isUnlocked: false,
     },
     skills: [
       {
         name: "Interaction Design",
         description: "Designing intuitive player interactions in VR environments.",
+        isUnlocked: false,
       },
       {
         name: "Spatial UX",
         description: "Understanding player movement and comfort in virtual space.",
+        isUnlocked: false,
       },
       {
         name: "Hand Interaction",
         description: "Exploring hand-based interaction mechanics.",
+        isUnlocked: false,
       },
       {
         name: "Prototype Exploration",
         description: "Experimenting with immersive gameplay ideas in VR.",
+        isUnlocked: false,
       },
       {
         name: "XR Tools",
         description: "Learning XR development tools and workflows.",
+        isUnlocked: false,
       },
     ],
-    color: "rgba(59, 130, 246, 0.6)",
+    color: "rgba(59, 130, 246, 0.8)",
     glowColor: "rgb(59, 130, 246)",
-    masteryLevel: "beginner" as const,
+    allUnlocked: false,
   },
 ]
 
@@ -108,12 +126,12 @@ function Particles() {
   const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; size: number; duration: number }>>([])
 
   useEffect(() => {
-    const newParticles = Array.from({ length: 30 }, (_, i) => ({
+    const newParticles = Array.from({ length: 50 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: Math.random() * 2 + 1,
-      duration: Math.random() * 3 + 2,
+      size: Math.random() * 3 + 1,
+      duration: Math.random() * 4 + 3,
     }))
     setParticles(newParticles)
   }, [])
@@ -123,7 +141,7 @@ function Particles() {
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full bg-foreground/10"
+          className="absolute rounded-full bg-primary/20"
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,
@@ -131,8 +149,9 @@ function Particles() {
             height: particle.size,
           }}
           animate={{
-            opacity: [0.2, 0.5, 0.2],
-            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.4, 0.1],
+            scale: [1, 1.5, 1],
+            y: [0, -20, 0],
           }}
           transition={{
             duration: particle.duration,
@@ -185,19 +204,8 @@ export function SkillConstellation() {
                   skills={cluster.skills}
                   color={cluster.color}
                   glowColor={cluster.glowColor}
-                  masteryLevel={cluster.masteryLevel}
+                  allUnlocked={cluster.allUnlocked}
                 />
-              </div>
-              <div className="mt-4 text-center">
-                <span
-                  className="text-xs uppercase tracking-wider px-3 py-1 rounded-full border"
-                  style={{
-                    borderColor: cluster.glowColor,
-                    color: cluster.glowColor,
-                  }}
-                >
-                  {cluster.masteryLevel}
-                </span>
               </div>
             </motion.div>
           ))}
