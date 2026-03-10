@@ -2,7 +2,7 @@ import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Projects } from "@/components/projects"
-import { Skills } from "@/components/skills"
+import { SkillConstellation } from "@/components/skill-constellation"
 import { Contact } from "@/components/contact"
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <About />
       <Projects />
-      <Skills />
+      <SkillConstellation />
       <Contact />
       <footer className="py-8 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto text-center text-sm text-muted-foreground">
