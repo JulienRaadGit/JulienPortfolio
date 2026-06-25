@@ -1,35 +1,36 @@
 "use client"
 
-import { useState } from "react"
+import { motion } from "framer-motion"
 import { projects } from "@/lib/projects"
 import { ProjectCard } from "@/components/project-card"
-import { ProjectModal } from "@/components/project-modal"
-import type { Project } from "@/lib/projects"
+import { SectionHeading } from "@/components/section-heading"
 
 export function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-
   return (
-    <section id="projects" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-sm uppercase tracking-widest text-primary mb-12 font-medium">
-          Selected Work
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              onClick={() => setSelectedProject(project)}
-            />
+    <section id="projects" className="relative px-6 py-24 md:py-32">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading
+          eyebrow="Featured Projects"
+          title="Work I'm proud of"
+          description="A selection of games and interactive experiences. Click any project to explore the full breakdown, media gallery and technical details."
+        />
+
+        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
-      </div>
 
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-12 text-center text-sm text-muted-foreground"
+        >
+          More projects coming soon.
+        </motion.p>
+      </div>
     </section>
   )
 }

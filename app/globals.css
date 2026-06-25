@@ -42,7 +42,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
+  --font-sans: var(--font-geist), 'Geist Fallback', ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -88,5 +89,40 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(
+      120deg,
+      var(--color-foreground) 0%,
+      color-mix(in oklch, var(--color-primary) 70%, var(--color-foreground)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .glass {
+    background: color-mix(in oklch, var(--color-card) 60%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .premium-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in oklch, var(--color-border) 40%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklch, var(--color-border) 40%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
   }
 }
