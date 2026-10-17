@@ -6,6 +6,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowUpRight, Gamepad2 } from "lucide-react"
 import type { Project } from "@/lib/projects"
+import { PushPin } from "@/components/doodles"
 
 interface ProjectCardProps {
   project: Project
@@ -29,7 +30,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg)")
   }
 
-  const tilt = index % 2 === 0 ? "-rotate-1" : "rotate-1"
+  const tilts = ["-rotate-2", "rotate-1", "-rotate-1", "rotate-2"]
+  const tilt = tilts[index % tilts.length]
+  const tapeClass = index % 2 === 0 ? "washi-tape" : "washi-tape washi-tape-blue"
 
   return (
     <motion.div
@@ -48,7 +51,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           className="paper-card relative overflow-hidden rounded-2xl transition-[transform] duration-200 ease-out will-change-transform group-hover:-translate-y-1"
         >
           {/* Washi tape pinning the card */}
-          <div className="washi-tape left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rotate-3" />
+          <div className={`${tapeClass} left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rotate-3`} />
+
+          {/* Pushpin peeking from the corner */}
+          <PushPin className="absolute -right-2 -top-2 z-10 h-7 w-7 -rotate-12 text-primary drop-shadow-sm" />
 
           {/* Thumbnail */}
           <div className="relative aspect-[16/10] overflow-hidden border-b-2 border-foreground/70">

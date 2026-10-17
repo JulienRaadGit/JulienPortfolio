@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Github, Linkedin, Mail, Download, ArrowUpRight } from "lucide-react"
 import { contactInfo } from "@/lib/projects"
+import { DoodleStar } from "@/components/doodles"
 
 const links = [
   { name: "GitHub", href: contactInfo.github, icon: Github, external: true },
@@ -23,7 +24,19 @@ export function Contact() {
           <div className="washi-tape left-10 top-0 -translate-y-1/2 -rotate-6" />
           <div className="washi-tape washi-tape-blue right-14 top-0 -translate-y-1/2 rotate-6" />
 
+          <div
+            className="stamp-mark absolute right-6 top-6 hidden -rotate-12 flex-col items-center px-3 py-2 text-[var(--stamp-teal)] md:flex"
+            aria-hidden="true"
+          >
+            <span className="font-display text-sm font-bold leading-none">Open</span>
+            <span className="font-display text-sm font-bold leading-none">to work</span>
+          </div>
+
           <div className="relative">
+            <DoodleStar
+              className="absolute -top-5 left-24 h-6 w-6 rotate-6 text-primary/50"
+              aria-hidden="true"
+            />
             <span className="sticker inline-flex -rotate-1 items-center gap-2 rounded-full bg-[var(--tape-yellow)] px-3 py-1 text-xs font-bold uppercase tracking-widest text-foreground">
               Last Page
             </span>

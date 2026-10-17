@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import { ArrowDown, Github, Linkedin } from "lucide-react"
 import { contactInfo } from "@/lib/projects"
+import { DoodleArrow, DoodleStar, PushPin } from "@/components/doodles"
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null)
@@ -57,8 +58,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 12, rotate: -3 }}
           animate={{ opacity: 1, y: 0, rotate: -3 }}
           transition={{ duration: 0.5 }}
-          className="sticker mb-6 inline-flex items-center gap-2 rounded-full bg-[var(--tape-yellow)] px-4 py-1.5 text-xs font-bold text-foreground"
+          className="sticker relative mb-6 inline-flex items-center gap-2 rounded-full bg-[var(--tape-yellow)] px-4 py-1.5 text-xs font-bold text-foreground"
         >
+          <PushPin className="absolute -top-4 left-1/2 h-6 w-6 -translate-x-1/2 text-primary" aria-hidden="true" />
           <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
           Open to game studios &amp; master&apos;s programs ✦
         </motion.div>
@@ -67,8 +69,12 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05 }}
-          className="font-display text-7xl font-bold leading-[1.05] tracking-tight text-balance md:text-9xl"
+          className="relative font-display text-7xl font-bold leading-[1.05] tracking-tight text-balance md:text-9xl"
         >
+          <DoodleStar
+            className="absolute -right-2 top-0 hidden h-10 w-10 rotate-12 text-[var(--stamp-teal)]/60 md:-right-6 md:block"
+            aria-hidden="true"
+          />
           Julien
           <br />
           <span className="squiggle-underline text-primary">Raad</span>
@@ -101,8 +107,12 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="relative mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
+          <DoodleArrow
+            className="absolute -left-20 -top-12 hidden h-12 w-16 -rotate-[20deg] text-primary/50 md:block"
+            aria-hidden="true"
+          />
           <a
             href="#projects"
             className="sticker inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-bold text-primary-foreground transition-transform hover:-rotate-2 hover:scale-105"

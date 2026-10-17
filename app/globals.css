@@ -224,4 +224,35 @@
     background: radial-gradient(circle at 35% 30%, oklch(0.75 0.17 35), oklch(0.5 0.17 27));
     box-shadow: 0 2px 3px color-mix(in oklch, var(--color-foreground) 30%, transparent);
   }
+
+  /* Instant-photo frame: thick cream border with room for a handwritten caption */
+  .polaroid {
+    background: var(--color-card);
+    border: 2px solid color-mix(in oklch, var(--color-foreground) 70%, transparent);
+    padding: 0.6rem 0.6rem 0.9rem;
+    box-shadow:
+      3px 3px 0 color-mix(in oklch, var(--color-foreground) 12%, transparent),
+      0 14px 28px -14px color-mix(in oklch, var(--color-foreground) 40%, transparent);
+  }
+
+  /* Corkboard backdrop — warm dotted texture to pin cards onto */
+  .corkboard {
+    position: relative;
+    background-color: color-mix(in oklch, var(--primary) 7%, var(--color-background));
+    background-image:
+      radial-gradient(color-mix(in oklch, var(--color-foreground) 10%, transparent) 1px, transparent 1.4px);
+    background-size: 14px 14px;
+    border-radius: var(--radius-xl);
+    border: 2px dashed color-mix(in oklch, var(--color-foreground) 25%, transparent);
+  }
+
+  /* Rubber-stamp postmark: rotated double ring, used for "sent" / badge marks.
+     Display is left to whatever flex/hidden utilities are applied alongside it. */
+  .stamp-mark {
+    border: 2.5px solid currentColor;
+    border-radius: 9999px;
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+    outline-style: dashed;
+  }
 }

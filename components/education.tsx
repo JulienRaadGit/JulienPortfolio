@@ -13,6 +13,7 @@ export function Education() {
           eyebrow="Education"
           title="My academic path"
           description="A journey from computer science fundamentals to specialized game programming and an international exchange."
+          tapeColor="blue"
         />
 
         <div className="relative mt-14 max-w-3xl">

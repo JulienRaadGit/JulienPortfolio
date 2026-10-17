@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { ArrowUpRight, Camera } from "lucide-react"
 import { getProject } from "@/lib/projects"
 import { SectionHeading } from "@/components/section-heading"
+import { PushPin } from "@/components/doodles"
 
 const koreaProjectIds = ["art-heist", "ashen-hollow"]
 
@@ -73,12 +74,13 @@ export function KoreaExchange() {
           <p className="mb-6 max-w-2xl text-sm text-muted-foreground">
             Personal photos from the exchange — including the people met along the way — coming soon.
           </p>
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
+          <div className="corkboard grid grid-cols-2 gap-6 p-6 sm:grid-cols-3 md:grid-cols-4">
             {Array.from({ length: 4 }).map((_, i) => (
               <div
                 key={i}
-                className={`paper-card flex aspect-square flex-col items-center justify-center gap-2 border-dashed p-4 text-center ${i % 2 === 0 ? "rotate-2" : "-rotate-2"}`}
+                className={`paper-card relative flex aspect-square flex-col items-center justify-center gap-2 border-dashed p-4 text-center ${i % 2 === 0 ? "rotate-2" : "-rotate-2"}`}
               >
+                <PushPin className="absolute -top-3 left-1/2 h-6 w-6 -translate-x-1/2 text-primary" aria-hidden="true" />
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <Camera className="h-6 w-6" />
                 </div>

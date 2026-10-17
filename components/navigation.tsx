@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, Download } from "lucide-react"
 import { contactInfo } from "@/lib/projects"
+import { Paperclip } from "@/components/doodles"
 
 const navItems = [
   { name: "Projects", href: "/#projects" },
@@ -34,8 +35,9 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="font-display text-2xl font-bold tracking-tight text-foreground hover:text-primary hover:-rotate-2 transition-all inline-block"
+          className="relative inline-flex items-center font-display text-2xl font-bold tracking-tight text-foreground hover:text-primary hover:-rotate-2 transition-all"
         >
+          <Paperclip className="absolute -left-3 -top-3 h-6 w-4 -rotate-12 text-primary/70" aria-hidden="true" />
           Julien<span className="text-primary">Raad</span> ✎
         </Link>
 

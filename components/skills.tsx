@@ -20,11 +20,13 @@ export function Skills() {
           eyebrow="Skills"
           title="Tools & expertise"
           description="The engines, languages and disciplines I use to bring games and immersive experiences to life."
+          tapeColor="blue"
         />
 
         <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           {skillCategories.map((cat, index) => {
             const Icon = categoryIcons[cat.category] ?? Boxes
+            const tilts = ["-rotate-2", "rotate-1", "-rotate-1", "rotate-2"]
             return (
               <motion.div
                 key={cat.category}
@@ -32,7 +34,7 @@ export function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className={`paper-card group rounded-2xl p-6 transition-transform hover:-translate-y-1 ${index % 2 === 0 ? "-rotate-1" : "rotate-1"}`}
+                className={`paper-card group rounded-2xl p-6 transition-transform hover:-translate-y-1 hover:rotate-0 ${tilts[index % tilts.length]}`}
               >
                 <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                   <Icon className="h-5 w-5" />
