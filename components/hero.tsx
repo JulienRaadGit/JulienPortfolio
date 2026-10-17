@@ -35,53 +35,54 @@ export function Hero() {
     >
       {/* Background layers */}
       <div className="pointer-events-none absolute inset-0">
-        {/* Animated grid */}
+        {/* Faint graph-paper page */}
         <motion.div
           style={{ x: gridX, y: gridY }}
-          className="premium-grid absolute inset-[-10%] opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
+          className="premium-grid absolute inset-[-10%] opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
         />
 
-        {/* Glow orbs (Unreal-inspired) */}
+        {/* Soft paper doodle blobs instead of sci-fi glow */}
         <motion.div
           style={{ x: orb1X, y: orb1Y }}
-          className="absolute left-1/4 top-1/4 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[120px]"
+          className="absolute left-1/4 top-1/4 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[90px]"
         />
         <motion.div
           style={{ x: orb2X, y: orb2Y }}
-          className="absolute right-1/4 bottom-1/4 h-[32rem] w-[32rem] translate-x-1/2 translate-y-1/2 rounded-full bg-[oklch(0.55_0.18_265)]/25 blur-[120px]"
+          className="absolute right-1/4 bottom-1/4 h-[26rem] w-[26rem] translate-x-1/2 translate-y-1/2 rounded-full bg-[var(--stamp-teal)]/15 blur-[90px]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/0 to-background" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 12, rotate: -3 }}
+          animate={{ opacity: 1, y: 0, rotate: -3 }}
           transition={{ duration: 0.5 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/70 glass px-4 py-1.5 text-xs font-medium text-muted-foreground"
+          className="sticker mb-6 inline-flex items-center gap-2 rounded-full bg-[var(--tape-yellow)] px-4 py-1.5 text-xs font-bold text-foreground"
         >
           <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-          Available for game studios &amp; master&apos;s programs
+          Open to game studios &amp; master&apos;s programs ✦
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.05 }}
-          className="font-display text-5xl font-bold leading-[1.05] tracking-tight text-balance md:text-7xl"
+          className="font-display text-7xl font-bold leading-[1.05] tracking-tight text-balance md:text-9xl"
         >
-          <span className="text-gradient">Julien Raad</span>
+          Julien
+          <br />
+          <span className="squiggle-underline text-primary">Raad</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-5 font-display text-lg font-medium text-foreground/90 md:text-2xl"
+          className="mt-7 font-display text-xl font-bold text-foreground/90 md:text-3xl"
         >
-          Game Developer <span className="text-muted-foreground">|</span> Unity{" "}
-          <span className="text-primary">•</span> Unreal Engine{" "}
-          <span className="text-primary">•</span> VR
+          Game Developer <span className="text-muted-foreground">·</span> Unity{" "}
+          <span className="text-primary">+</span> Unreal Engine{" "}
+          <span className="text-primary">+</span> VR
         </motion.p>
 
         <motion.p
@@ -90,9 +91,10 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg"
         >
-          I build immersive gameplay systems and interactive experiences — from
-          mobile games to physics-driven sandboxes and VR. Focused on crafting
-          polished, performant games with strong technical foundations.
+          This is my scrapbook of games, sketches and VR experiments — a messy
+          desk turned into a portfolio. I build immersive gameplay systems and
+          interactive experiences, from mobile games to physics-driven
+          sandboxes and VR, and I write down everything I learn along the way.
         </motion.p>
 
         <motion.div
@@ -103,9 +105,9 @@ export function Hero() {
         >
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-105"
+            className="sticker inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-bold text-primary-foreground transition-transform hover:-rotate-2 hover:scale-105"
           >
-            View Projects
+            Flip through my projects
             <ArrowDown className="h-4 w-4" />
           </a>
           <div className="flex items-center gap-3">
@@ -114,7 +116,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 glass text-muted-foreground transition-colors hover:text-foreground"
+              className="paper-card inline-flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-transform hover:rotate-6 hover:text-foreground"
             >
               <Github className="h-5 w-5" />
             </a>
@@ -123,7 +125,7 @@ export function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 glass text-muted-foreground transition-colors hover:text-foreground"
+              className="paper-card inline-flex h-11 w-11 items-center justify-center rounded-full text-muted-foreground transition-transform hover:-rotate-6 hover:text-foreground"
             >
               <Linkedin className="h-5 w-5" />
             </a>

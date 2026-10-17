@@ -23,15 +23,14 @@ export function SectionHeading({
       transition={{ duration: 0.55 }}
       className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}
     >
-      <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-        <span className="h-px w-6 bg-primary" />
+      <span className="sticker inline-block -rotate-2 rounded-md bg-[var(--tape-yellow)] px-3 py-1 text-xs font-bold uppercase tracking-widest text-foreground">
         {eyebrow}
       </span>
-      <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-balance md:text-5xl">
+      <h2 className="mt-5 font-display text-4xl font-bold tracking-tight text-balance md:text-6xl">
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground">
+        <p className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground">
           {description}
         </p>
       )}

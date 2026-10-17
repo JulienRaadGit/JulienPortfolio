@@ -16,13 +16,13 @@ export function Education() {
         />
 
         <div className="relative mt-14 max-w-3xl">
-          {/* Vertical line */}
+          {/* Stitched thread */}
           <div
-            className="absolute left-5 top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-border to-transparent md:left-6"
+            className="absolute left-5 top-2 bottom-2 w-0 border-l-2 border-dashed border-foreground/40 md:left-6"
             aria-hidden="true"
           />
 
-          <ul className="space-y-8">
+          <ul className="space-y-10">
             {education.map((item, index) => (
               <motion.li
                 key={item.title}
@@ -32,16 +32,16 @@ export function Education() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative pl-16 md:pl-20"
               >
-                {/* Node */}
-                <span className="absolute left-0 top-0 inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/40 bg-card text-primary md:h-[3.25rem] md:w-[3.25rem]">
+                {/* Pin node */}
+                <span className="paper-card absolute left-0 top-0 inline-flex h-11 w-11 items-center justify-center rounded-full text-primary md:h-[3.25rem] md:w-[3.25rem]">
                   <GraduationCap className="h-5 w-5" />
                 </span>
 
-                <div className="rounded-2xl border border-border/70 bg-card p-6">
-                  <h3 className="font-display text-lg font-bold text-foreground md:text-xl">
+                <div className={`paper-card rounded-2xl p-6 ${index % 2 === 0 ? "rotate-1" : "-rotate-1"}`}>
+                  <h3 className="font-display text-xl font-bold text-foreground md:text-2xl">
                     {item.title}
                   </h3>
-                  <p className="mt-1 text-sm font-medium text-primary">
+                  <p className="mt-1 text-sm font-bold text-primary">
                     {item.institution}
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

@@ -21,7 +21,7 @@ export function MediaGallery({ items, title }: MediaGalleryProps) {
       {/* Video presentation */}
       {video && (
         <div className="mb-6">
-          <h3 className="mb-3 flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+          <h3 className="mb-3 flex items-center gap-2 font-display text-lg font-bold text-foreground">
             <Play className="h-4 w-4 text-primary" />
             Gameplay Video
           </h3>
@@ -32,7 +32,7 @@ export function MediaGallery({ items, title }: MediaGalleryProps) {
       {/* Screenshots */}
       {images.length > 0 && (
         <div>
-          <h3 className="mb-3 flex items-center gap-2 font-display text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+          <h3 className="mb-3 flex items-center gap-2 font-display text-lg font-bold text-foreground">
             <ImageIcon className="h-4 w-4 text-primary" />
             Screenshots
           </h3>
@@ -44,7 +44,7 @@ export function MediaGallery({ items, title }: MediaGalleryProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="relative aspect-video overflow-hidden rounded-xl border border-border/70 bg-card"
+                className={`paper-card relative aspect-video overflow-hidden ${index % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
               >
                 {img.placeholder || !img.src ? (
                   <PlaceholderBox

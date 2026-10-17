@@ -10,6 +10,7 @@ const navItems = [
   { name: "Skills", href: "/#skills" },
   { name: "About", href: "/#about" },
   { name: "Education", href: "/#education" },
+  { name: "Korea", href: "/#korea" },
   { name: "Contact", href: "/#contact" },
 ]
 
@@ -27,15 +28,15 @@ export function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass border-b border-border/60" : "bg-transparent"
+        scrolled ? "glass border-b-2 border-foreground/70" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="font-display text-lg font-bold tracking-tight text-foreground hover:text-primary transition-colors"
+          className="font-display text-2xl font-bold tracking-tight text-foreground hover:text-primary hover:-rotate-2 transition-all inline-block"
         >
-          Julien<span className="text-primary">Raad</span>
+          Julien<span className="text-primary">Raad</span> ✎
         </Link>
 
         <ul className="hidden md:flex items-center gap-8">
@@ -43,7 +44,7 @@ export function Navigation() {
             <li key={item.name}>
               <Link
                 href={item.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm font-semibold text-muted-foreground hover:text-primary hover:squiggle-underline transition-colors"
               >
                 {item.name}
               </Link>
@@ -56,7 +57,7 @@ export function Navigation() {
             href={contactInfo.cv}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-transform hover:scale-105"
+            className="sticker inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground transition-transform hover:-rotate-3 hover:scale-105"
           >
             <Download className="h-4 w-4" />
             CV
@@ -73,14 +74,14 @@ export function Navigation() {
       </div>
 
       {open && (
-        <div className="md:hidden glass border-t border-border/60 px-6 py-4">
+        <div className="md:hidden glass border-t-2 border-foreground/70 px-6 py-4">
           <ul className="flex flex-col gap-4">
             {navItems.map((item) => (
               <li key={item.name}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block text-base text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-base font-semibold text-muted-foreground hover:text-primary transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -92,7 +93,7 @@ export function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
+                className="sticker inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
               >
                 <Download className="h-4 w-4" />
                 Download CV

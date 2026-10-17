@@ -1,22 +1,23 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Geist } from 'next/font/google'
+import { Nunito, Caveat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const geist = Geist({
+const nunito = Nunito({
   subsets: ['latin'],
-  variable: '--font-geist',
+  variable: '--font-nunito',
 })
 
-const spaceGrotesk = Space_Grotesk({
+const caveat = Caveat({
   subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  variable: '--font-caveat',
+  weight: ['500', '600', '700'],
 })
 
 export const metadata: Metadata = {
-  title: 'Julien Raad | Game Developer — Unity, Unreal Engine, VR',
+  title: "Julien Raad | Game Developer — Unity, Unreal Engine, VR",
   description:
-    'Portfolio of Julien Raad, Game Developer specializing in Unity, Unreal Engine 5 and VR. Featuring gameplay programming projects, immersive experiences and technical work.',
+    'A scrapbook-style portfolio of Julien Raad, Game Developer specializing in Unity, Unreal Engine 5 and VR. Featuring gameplay programming projects, immersive experiences and technical work.',
   keywords: [
     'Julien Raad',
     'Game Developer',
@@ -58,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`dark bg-background ${geist.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`bg-background ${nunito.variable} ${caveat.variable}`}>
       <body className="font-sans antialiased">
         {children}
         <Analytics />

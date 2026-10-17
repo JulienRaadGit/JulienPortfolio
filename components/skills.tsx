@@ -32,19 +32,19 @@ export function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="group rounded-2xl border border-border/70 bg-card p-6 transition-colors hover:border-primary/40"
+                className={`paper-card group rounded-2xl p-6 transition-transform hover:-translate-y-1 ${index % 2 === 0 ? "-rotate-1" : "rotate-1"}`}
               >
                 <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="font-display text-lg font-bold text-foreground">
+                <h3 className="font-display text-xl font-bold text-foreground">
                   {cat.category}
                 </h3>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {cat.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-md border border-border/60 bg-secondary/40 px-3 py-1.5 text-sm text-muted-foreground"
+                      className="rounded-md border border-foreground/25 bg-secondary/50 px-3 py-1.5 text-sm font-semibold text-muted-foreground"
                     >
                       {item}
                     </li>

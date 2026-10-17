@@ -11,10 +11,13 @@ export interface GalleryItem {
   placeholder?: boolean
 }
 
+export type ProjectCategory = "VR" | "Game Development" | "Game Jam" | "3D / Environment"
+
 export interface Project {
   id: string
   title: string
   engine: string
+  category: ProjectCategory
   description: string
   longDescription: string
   tech: string[]
@@ -26,119 +29,125 @@ export interface Project {
   challenges: string
   learned: string
   gallery: GalleryItem[]
-  github?: string
   demo?: string
+  // Marks projects created during the Namseoul University exchange (South Korea)
+  koreaExchange?: boolean
 }
 
 export const projects: Project[] = [
   {
-    id: "brickit",
-    title: "BrickIt",
-    engine: "Unity",
-    description:
-      "A polished personal mobile game exploring satisfying core gameplay loops and mobile-first game design.",
-    longDescription:
-      "BrickIt is a personal mobile game built to explore core gameplay mechanics and mobile-first design principles. The goal was to craft an engaging, tactile experience optimized for touch controls, with responsive feedback and a progression system that keeps players coming back.",
-    tech: ["Unity", "C#", "Mobile", "Unity UI"],
-    thumbnail: "/images/brickit.jpg",
-    banner: "/images/banners/brickit-banner.png",
-    duration: "[PLACEHOLDER] e.g. 3 months (2024)",
-    teamSize: "[PLACEHOLDER] e.g. Solo project",
-    role: "[PLACEHOLDER] e.g. Game Developer & Designer",
-    challenges:
-      "[PLACEHOLDER] Describe the main technical or design challenges you faced — for example, achieving responsive touch controls, balancing difficulty, or optimizing for low-end devices.",
-    learned:
-      "[PLACEHOLDER] Describe what you took away from the project — responsive mobile controls, iterative design, performance optimization.",
-    gallery: [
-      { type: "video", src: "", videoType: "mp4", alt: "BrickIt gameplay video", placeholder: true },
-      { type: "image", src: "/images/brickit.jpg", alt: "BrickIt screenshot 1" },
-      { type: "image", src: "", alt: "BrickIt screenshot 2", placeholder: true },
-      { type: "image", src: "", alt: "BrickIt screenshot 3", placeholder: true },
-      { type: "image", src: "", alt: "BrickIt screenshot 4", placeholder: true },
-    ],
-    github: "#",
-  },
-  {
-    id: "unreal-physics",
-    title: "Unreal Physics Project",
+    id: "art-heist",
+    title: "Art Heist",
     engine: "Unreal Engine 5",
+    category: "VR",
+    koreaExchange: true,
     description:
-      "An experimental sandbox exploring physics-driven gameplay systems and interactions in Unreal Engine 5.",
+      "A virtual reality stealth game where players infiltrate a museum, steal valuable artifacts, avoid security systems and escape without being caught.",
     longDescription:
-      "An experimental sandbox project focused on understanding physics-based gameplay in Unreal Engine 5. It explores a range of physics interactions and their applications in game mechanics, from interactive props to physics-driven puzzles built with Chaos Physics.",
-    tech: ["Unreal Engine", "Blueprint", "Chaos Physics"],
-    thumbnail: "/images/unreal-physics.jpg",
-    banner: "/images/banners/unreal-physics-banner.png",
-    duration: "[PLACEHOLDER] e.g. 2 months (2024)",
-    teamSize: "[PLACEHOLDER] e.g. Solo project",
-    role: "[PLACEHOLDER] e.g. Gameplay Programmer",
+      "Art Heist is a first-person virtual reality stealth game developed in Unreal Engine 5 during an exchange semester at Namseoul University, South Korea. Players must infiltrate a museum, avoid laser security systems, outsmart an AI guard, collect five valuable artifacts and reach the extraction point. The project focuses on immersive interactions, AI behavior, level design and VR gameplay.",
+    tech: ["Unreal Engine 5", "Blueprint", "VR", "AI", "Level Design"],
+    thumbnail: "/images/Art1.png",
+    banner: "/images/Art1.png",
+    duration: "2 months",
+    teamSize: "5",
+    role: "Level design, item & extraction systems, intro and escape cinematics",
     challenges:
-      "[PLACEHOLDER] Describe the main challenges — tuning physics to feel fun rather than purely realistic, debugging Blueprint logic, performance.",
+      "Designing immersive VR interactions while creating challenging stealth gameplay through AI behavior, laser systems and level design.",
     learned:
-      "[PLACEHOLDER] Describe what you learned — physics simulation, Unreal Blueprints, balancing realism and fun.",
+      "VR interaction design, AI implementation, level design, player guidance and immersive gameplay systems.",
     gallery: [
-      { type: "video", src: "", videoType: "youtube", alt: "Unreal Physics gameplay video", placeholder: true },
-      { type: "image", src: "/images/unreal-physics.jpg", alt: "Unreal Physics screenshot 1" },
-      { type: "image", src: "", alt: "Unreal Physics screenshot 2", placeholder: true },
-      { type: "image", src: "", alt: "Unreal Physics screenshot 3", placeholder: true },
-      { type: "image", src: "", alt: "Unreal Physics screenshot 4", placeholder: true },
+      { type: "video", src: "/images/Art_vid.mp4", videoType: "mp4", alt: "Art Heist gameplay" },
+      { type: "image", src: "/images/Art1.png", alt: "Art Heist screenshot 1" },
+      { type: "image", src: "/images/Art2.png", alt: "Art Heist screenshot 2" },
+      { type: "image", src: "/images/Art3.png", alt: "Art Heist screenshot 3" },
     ],
   },
+
   {
-    id: "game-jam",
-    title: "Game Jam Project",
-    engine: "Unity",
+    id: "ashen-hollow",
+    title: "Ashen Hollow",
+    engine: "Unreal Engine 5",
+    category: "VR",
+    koreaExchange: true,
     description:
-      "A prototype built under time pressure during a game jam, demonstrating rapid iteration and scope management.",
+      "A narrative VR experience focused on atmosphere, environmental storytelling and cinematic presentation.",
     longDescription:
-      "A 48-hour game jam project that challenged rapid prototyping skills and creative problem-solving under tight time constraints. The focus was on shipping a playable, fun core loop while managing scope aggressively.",
-    tech: ["Unity", "C#", "Rapid Prototyping"],
-    thumbnail: "/images/gamejam.jpg",
-    banner: "/images/banners/game-jam-banner.png",
-    duration: "[PLACEHOLDER] e.g. 48 hours",
-    teamSize: "[PLACEHOLDER] e.g. Team of 4",
-    role: "[PLACEHOLDER] e.g. Gameplay Programmer",
+      "Ashen Hollow tells the story of a soldier returning home after war only to discover his village destroyed by a dragon. Rather than focusing on gameplay, the project emphasizes atmosphere through lighting, visual effects, environmental storytelling and cinematic direction. Developed during an exchange semester at Namseoul University, South Korea.",
+    tech: ["Unreal Engine 5", "VR", "Lighting", "Niagara", "Environment Art"],
+    thumbnail: "/images/Ashen1.png",
+    banner: "/images/Ashen1.png",
+    duration: "2 months",
+    teamSize: "2",
+    role: "Terrain, texturing, object placement and VR navmesh",
     challenges:
-      "[PLACEHOLDER] Describe the main challenges — scope management, working fast as a team, integrating art quickly.",
+      "Creating emotion using only environment, lighting, visual effects and level composition.",
     learned:
-      "[PLACEHOLDER] Describe what you learned — prioritizing core gameplay, quick decision making, teamwork.",
+      "Environmental storytelling, cinematic lighting, VFX integration and immersive scene composition.",
     gallery: [
-      { type: "video", src: "", videoType: "mp4", alt: "Game Jam gameplay video", placeholder: true },
-      { type: "image", src: "/images/gamejam.jpg", alt: "Game Jam screenshot 1" },
-      { type: "image", src: "", alt: "Game Jam screenshot 2", placeholder: true },
-      { type: "image", src: "", alt: "Game Jam screenshot 3", placeholder: true },
-      { type: "image", src: "", alt: "Game Jam screenshot 4", placeholder: true },
+      { type: "video", src: "/images/Ashen_vid.mp4", videoType: "mp4", alt: "Ashen Hollow cinematic" },
+      { type: "image", src: "/images/Ashen1.png", alt: "Ashen Hollow screenshot 1" },
+      { type: "image", src: "/images/Ashen2.png", alt: "Ashen Hollow screenshot 2" },
+      { type: "image", src: "/images/Ashen3.png", alt: "Ashen Hollow screenshot 3" },
     ],
-    github: "#",
-    demo: "#",
   },
+
   {
-    id: "cooking-ui",
-    title: "Cooking UI/UX Project",
+    id: "souls-judgment",
+    title: "Soul's Judgment",
     engine: "Unity",
+    category: "Game Jam",
     description:
-      "An interface-focused project exploring how UI and UX design shape the gameplay experience.",
+      "A procedural dungeon crawler created during a 39-hour Game Jam where bugs became gameplay mechanics.",
     longDescription:
-      "A UI/UX focused project exploring how interface design affects the gameplay experience. It centers on a cooking game interface built around intuitive interaction, clear feedback, and smooth animated transitions.",
-    tech: ["Unity", "Unity UI", "UX Design"],
-    thumbnail: "/images/cooking-ui.jpg",
-    banner: "/images/banners/cooking-ui-banner.png",
-    duration: "[PLACEHOLDER] e.g. 1 month",
-    teamSize: "[PLACEHOLDER] e.g. Solo project",
-    role: "[PLACEHOLDER] e.g. UI/UX Programmer",
+      "Developed in only 39 hours during a Game Jam, Soul's Judgment is a procedural dungeon crawler based on the theme 'Bug = Feature'. The project required rapid iteration, teamwork and efficient scope management, ultimately earning second place.",
+    tech: ["Unity", "C#", "Procedural Generation", "Gameplay Programming"],
+    thumbnail: "/images/souls-judgment.jpg",
+    banner: "/images/banners/souls-judgment-banner.jpg",
+    duration: "39 hours",
+    teamSize: "[PLACEHOLDER]",
+    role: "[PLACEHOLDER]",
     challenges:
-      "[PLACEHOLDER] Describe the main challenges — designing intuitive flows, animating UI smoothly, accessibility.",
+      "Building a complete playable experience under severe time constraints while implementing procedural generation.",
     learned:
-      "[PLACEHOLDER] Describe what you learned — UI/UX impact on player experience, Unity UI best practices, accessibility.",
+      "Rapid prototyping, teamwork, gameplay iteration and efficient development workflows.",
     gallery: [
-      { type: "video", src: "", videoType: "mp4", alt: "Cooking UI walkthrough video", placeholder: true },
-      { type: "image", src: "/images/cooking-ui.jpg", alt: "Cooking UI screenshot 1" },
-      { type: "image", src: "", alt: "Cooking UI screenshot 2", placeholder: true },
-      { type: "image", src: "", alt: "Cooking UI screenshot 3", placeholder: true },
-      { type: "image", src: "", alt: "Cooking UI screenshot 4", placeholder: true },
+      { type: "video", src: "/videos/souls-judgment.mp4", videoType: "mp4", alt: "Soul's Judgment gameplay", placeholder: true },
+      { type: "image", src: "/images/projects/souls-judgment/1.jpg", alt: "Gameplay" },
+      { type: "image", src: "/images/projects/souls-judgment/2.jpg", alt: "Dungeon" },
+      { type: "image", src: "/images/projects/souls-judgment/3.jpg", alt: "Combat" },
+      { type: "image", src: "/images/projects/souls-judgment/4.jpg", alt: "Procedural level" },
+    ],
+  },
+
+  {
+    id: "minecraft-cinematic",
+    title: "Minecraft Cinematic Environment",
+    engine: "Blender",
+    category: "3D / Environment",
+    description:
+      "A cinematic Minecraft environment showcasing lighting, composition, rendering and camera animation.",
+    longDescription:
+      "This Blender project recreates a Minecraft-inspired environment through a cinematic approach. Instead of focusing on complex modeling, the project explores composition, lighting, textures, rendering and animated camera movement to create an immersive visual experience. The final result is presented as a one-minute cinematic flythrough.",
+    tech: ["Blender", "Lighting", "Rendering", "Camera Animation", "Composition"],
+    thumbnail: "/images/minecraft-cinematic.jpg",
+    banner: "/images/banners/minecraft-cinematic-banner.jpg",
+    duration: "[PLACEHOLDER]",
+    teamSize: "Solo",
+    role: "Environment Artist",
+    challenges:
+      "Creating a visually compelling cinematic using intentionally simple Minecraft-inspired assets.",
+    learned:
+      "Lighting, cinematic composition, rendering techniques, camera animation and visual storytelling.",
+    gallery: [
+      { type: "video", src: "/videos/minecraft-cinematic.mp4", videoType: "mp4", alt: "Minecraft cinematic", placeholder: true },
+      { type: "image", src: "/images/projects/minecraft/1.jpg", alt: "Overview" },
+      { type: "image", src: "/images/projects/minecraft/2.jpg", alt: "Overworld" },
+      { type: "image", src: "/images/projects/minecraft/3.jpg", alt: "Cave" },
+      { type: "image", src: "/images/projects/minecraft/4.jpg", alt: "Stronghold" },
     ],
   },
 ]
+
 
 export function getProject(id: string): Project | undefined {
   return projects.find((p) => p.id === id)
@@ -167,9 +176,14 @@ export interface EducationItem {
 
 export const education: EducationItem[] = [
   {
-    title: "Licence Informatique",
-    institution: "Computer Science Degree",
-    detail: "Foundations in algorithms, programming, and software engineering.",
+    title: "Master SYNVA",
+    institution: "Université de Strasbourg",
+    detail: "Currently studying VR, simulation and immersive technologies.",
+  },
+  {
+    title: "Exchange Semester",
+    institution: "Namseoul University, South Korea",
+    detail: "International exchange focused on technology and cross-cultural collaboration.",
   },
   {
     title: "Bachelor Game Programming",
@@ -177,15 +191,15 @@ export const education: EducationItem[] = [
     detail: "Specialized training in gameplay programming, engines, and production.",
   },
   {
-    title: "Exchange Semester",
-    institution: "Namseoul University, South Korea",
-    detail: "International exchange focused on technology and cross-cultural collaboration.",
+    title: "Licence Informatique",
+    institution: "Computer Science Degree",
+    detail: "Foundations in algorithms, programming, and software engineering.",
   },
 ]
 
 export const contactInfo = {
-  email: "julienraad.dev@gmail.com",
-  github: "https://github.com/julienraad",
-  linkedin: "https://www.linkedin.com/in/julienraad",
-  cv: "/cv/julien-raad-cv.pdf",
+  email: "julien.raadd@gmail.com",
+  github: "https://github.com/JulienRaadGit",
+  linkedin: "https://www.linkedin.com/in/julien-raad/",
+  cv: "/images/CV.pdf",
 }

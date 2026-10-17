@@ -4,46 +4,52 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Dark theme by default - deep navy/slate background */
-  --background: oklch(0.13 0.02 255);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.16 0.02 255);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.14 0.02 255);
-  --popover-foreground: oklch(0.95 0 0);
-  /* Cyan accent as primary */
-  --primary: oklch(0.75 0.15 195);
-  --primary-foreground: oklch(0.13 0.02 255);
-  --secondary: oklch(0.22 0.02 255);
-  --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.20 0.02 255);
-  --muted-foreground: oklch(0.65 0.01 255);
-  --accent: oklch(0.75 0.15 195);
-  --accent-foreground: oklch(0.13 0.02 255);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.25 0.02 255);
-  --input: oklch(0.22 0.02 255);
-  --ring: oklch(0.75 0.15 195);
-  --chart-1: oklch(0.75 0.15 195);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.5rem;
-  --sidebar: oklch(0.16 0.02 255);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.75 0.15 195);
-  --sidebar-primary-foreground: oklch(0.13 0.02 255);
-  --sidebar-accent: oklch(0.22 0.02 255);
-  --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.25 0.02 255);
-  --sidebar-ring: oklch(0.75 0.15 195);
+  /* Papercraft journal theme — warm cream paper, ink text, stamp-red accent */
+  --background: oklch(0.96 0.02 85);
+  --foreground: oklch(0.27 0.03 55);
+  --card: oklch(0.98 0.015 85);
+  --card-foreground: oklch(0.27 0.03 55);
+  --popover: oklch(0.98 0.015 85);
+  --popover-foreground: oklch(0.27 0.03 55);
+  /* Stamp-red accent as primary */
+  --primary: oklch(0.6 0.17 35);
+  --primary-foreground: oklch(0.98 0.015 85);
+  --secondary: oklch(0.88 0.05 80);
+  --secondary-foreground: oklch(0.27 0.03 55);
+  --muted: oklch(0.92 0.025 80);
+  --muted-foreground: oklch(0.47 0.035 60);
+  --accent: oklch(0.55 0.08 190);
+  --accent-foreground: oklch(0.98 0.015 85);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.98 0.015 85);
+  --border: oklch(0.6 0.03 60 / 35%);
+  --input: oklch(0.88 0.04 80);
+  --ring: oklch(0.6 0.17 35);
+  --chart-1: oklch(0.6 0.17 35);
+  --chart-2: oklch(0.55 0.08 190);
+  --chart-3: oklch(0.75 0.14 85);
+  --chart-4: oklch(0.6 0.12 265);
+  --chart-5: oklch(0.65 0.15 145);
+  --radius: 0.9rem;
+  --sidebar: oklch(0.98 0.015 85);
+  --sidebar-foreground: oklch(0.27 0.03 55);
+  --sidebar-primary: oklch(0.6 0.17 35);
+  --sidebar-primary-foreground: oklch(0.98 0.015 85);
+  --sidebar-accent: oklch(0.88 0.05 80);
+  --sidebar-accent-foreground: oklch(0.27 0.03 55);
+  --sidebar-border: oklch(0.6 0.03 60 / 35%);
+  --sidebar-ring: oklch(0.6 0.17 35);
+
+  /* Extra craft accents — used directly, not themed per color-scheme */
+  --tape-yellow: oklch(0.85 0.15 95 / 70%);
+  --tape-blue: oklch(0.72 0.08 230 / 65%);
+  --stamp-teal: oklch(0.55 0.08 190);
+  --ink-light: oklch(0.47 0.035 60);
 }
 
 @theme inline {
-  --font-sans: var(--font-geist), 'Geist Fallback', ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-space-grotesk), var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-caveat), var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -100,12 +106,33 @@
   font-family: var(--font-display);
 }
 
+@layer base {
+  body {
+    background-image:
+      radial-gradient(oklch(0.27 0.03 55 / 3%) 1px, transparent 1px);
+    background-size: 18px 18px;
+    position: relative;
+  }
+
+  /* Paper grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.16  0 0 0 0 0.14  0 0 0 0 0.11  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
 @layer utilities {
   .text-gradient {
     background: linear-gradient(
       120deg,
-      var(--color-foreground) 0%,
-      color-mix(in oklch, var(--color-primary) 70%, var(--color-foreground)) 100%
+      var(--color-primary) 0%,
+      var(--stamp-teal) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -114,15 +141,87 @@
   }
 
   .glass {
-    background: color-mix(in oklch, var(--color-card) 60%, transparent);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: color-mix(in oklch, var(--color-card) 75%, transparent);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 
+  /* Faint graph-paper grid, used behind the hero like a notebook page */
   .premium-grid {
     background-image:
-      linear-gradient(to right, color-mix(in oklch, var(--color-border) 40%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in oklch, var(--color-border) 40%, transparent) 1px, transparent 1px);
-    background-size: 56px 56px;
+      linear-gradient(to right, color-mix(in oklch, var(--color-foreground) 8%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklch, var(--color-foreground) 8%, transparent) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* A card that reads as a pinned index card / photo: ink border, soft stacked-paper shadow */
+  .paper-card {
+    background: var(--color-card);
+    border: 2px solid color-mix(in oklch, var(--color-foreground) 70%, transparent);
+    box-shadow:
+      3px 3px 0 color-mix(in oklch, var(--color-foreground) 12%, transparent),
+      0 10px 24px -12px color-mix(in oklch, var(--color-foreground) 35%, transparent);
+  }
+
+  /* A strip of washi tape, position it with inline styles / utility classes for placement */
+  .washi-tape {
+    position: absolute;
+    height: 1.75rem;
+    width: 4.5rem;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--tape-yellow),
+      var(--tape-yellow) 6px,
+      color-mix(in oklch, var(--tape-yellow) 70%, white) 6px,
+      color-mix(in oklch, var(--tape-yellow) 70%, white) 12px
+    );
+    opacity: 0.85;
+    box-shadow: 0 2px 4px color-mix(in oklch, var(--color-foreground) 15%, transparent);
+  }
+
+  .washi-tape-blue {
+    background: repeating-linear-gradient(
+      45deg,
+      var(--tape-blue),
+      var(--tape-blue) 6px,
+      color-mix(in oklch, var(--tape-blue) 70%, white) 6px,
+      color-mix(in oklch, var(--tape-blue) 70%, white) 12px
+    );
+  }
+
+  /* Rounded sticker-style badge with a thick hand-drawn-ish border */
+  .sticker {
+    border: 2px solid currentColor;
+    box-shadow: 2px 2px 0 currentColor;
+  }
+
+  /* Hand-drawn marker underline, sits under a heading or keyword */
+  .squiggle-underline {
+    position: relative;
+  }
+  .squiggle-underline::after {
+    content: '';
+    position: absolute;
+    left: -2%;
+    right: -2%;
+    bottom: -0.2em;
+    height: 0.3em;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M1 6 Q 35 2, 50 6 T 99 5' fill='none' stroke='currentColor' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.55;
+  }
+
+  /* Small pushpin dot */
+  .pin-dot {
+    position: absolute;
+    top: -0.65rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1.1rem;
+    width: 1.1rem;
+    border-radius: 9999px;
+    background: radial-gradient(circle at 35% 30%, oklch(0.75 0.17 35), oklch(0.5 0.17 27));
+    box-shadow: 0 2px 3px color-mix(in oklch, var(--color-foreground) 30%, transparent);
   }
 }
